@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BerandaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 //auth
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -42,3 +41,9 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 });
 // ADMIN routes
+
+// Guest routes
+Route::get('/', [BerandaController::class, 'index'])->name('beranda');
+
+// Guest routes
+
