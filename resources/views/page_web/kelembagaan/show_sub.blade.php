@@ -53,33 +53,36 @@
     </div>
     <!------------------- END JUMBOTRON DESC PROFILE ------------------------>
     <div class="container py-5">
-        @if ($programCategory->subCategories->isNotEmpty())
-            <div class="row row-cols-1 row-cols-md-3 g-4" <div class="col">
-                <div class="card h-100 shadow-sm">
+            @if ($programCategory->subCategories->isNotEmpty())
+                <div class="row row-cols-1 row-cols-md-4 g-4">
                     @foreach ($programCategory->subCategories as $subCategory)
-                        <div class="card-body">
-                            <h4 class="card-title mb-3">{{ $subCategory->name }}</h4>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-body-secondary" style="padding-right: 12%">
-                                @if($subCategory->programs->isNotEmpty())
-                                    Terakhir diperbarui: {{ $subCategory->programs->sortByDesc('updated_at')->first()->updated_at->diffForHumans() }}
-                                @else
-                                    Belum ada program
-                                @endif
-                            </small>
-                            <a href="{{ route('programSubCategory.view', $subCategory->id) }}" class="btn btn-primary mt-auto">
-                                <i class="bi bi-eye me-2"></i>Lihat Detail
-                            </a>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-3">{{ $subCategory->name }}</h4>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-body-secondary" style="padding-right: 12%">
+                                        @if ($subCategory->programs->isNotEmpty())
+                                            Terakhir diperbarui:
+                                            {{ $subCategory->programs->sortByDesc('updated_at')->first()->updated_at->diffForHumans() }}
+                                        @else
+                                            Belum ada program
+                                        @endif
+                                    </small>
+                                    <a href="{{ route('programSubCategory.view', $subCategory->id) }}"
+                                        class="btn btn-primary mt-auto">
+                                        <i class="bi bi-eye me-2"></i>Lihat Detail
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
                 </div>
-            </div>
-    </div>
-@else
-    <div class="alert alert-info text-center" role="alert">
-        Tidak ada sub kategori untuk kategori ini.
-    </div>      
-    @endif
+            @else
+                <div class="alert alert-info text-center" role="alert">
+                    Tidak ada sub kategori untuk kategori ini.
+                </div>
+            @endif
     </div>
 @endsection

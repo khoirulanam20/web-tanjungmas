@@ -28,7 +28,9 @@
                         <label for="program_sub_category_id" class="form-label">Program Sub Category</label>
                         <select class="form-control" id="program_sub_category_id" name="program_sub_category_id" required>
                             @foreach($programSubCategories as $programSubCategory)
-                                <option value="{{ $programSubCategory->id }}">{{ $programSubCategory->name }}</option>
+                                <option value="{{ $programSubCategory->id }}" data-category-id="{{ $programSubCategory->program_category_id }}">
+                                    {{ $programSubCategory->name }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -41,4 +43,32 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const categorySelect = document.getElementById('program_category_id');
+        const subCategorySelect = document.getElementById('program_sub_category_id');
+        const subCategoryOptions = subCategorySelect.querySelectorAll('option');
+
+        categorySelect.addEventListener('change', function () {
+            const selectedCategoryId = this.value;
+
+            subCategoryOptions.forEach(option => {
+                if (option.getAttribute('data-category-id') === selectedCategoryId) {
+                    option.style.display = 'block';
+                } else {
+                    option.style.display = 'none';
+                }
+            });
+
+            // Reset the sub category selection
+            subCategorySelect.value = '';
+        });
+
+        // Trigger change event on page load to set initial state
+        categorySelect.dispatchEvent(new Event('change'));
+    });
+</script>
 @endsection
