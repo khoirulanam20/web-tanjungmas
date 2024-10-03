@@ -98,4 +98,23 @@ class ArticleController extends Controller
 
         return redirect()->route('articles.index')->with('success', 'Artikel berhasil dihapus.');
     }
+
+    public function showCategories()
+    {
+        $categories = Category::all();
+        return view('page_web.berita.berita', compact('categories'));
+    }
+
+    public function showArticlesByCategory($id)
+    {
+        $category = Category::findOrFail($id);
+        $articles = Article::where('category_id', $id)->get();
+        return view('page_web.berita.articles', compact('category', 'articles'));
+    }
+
+    public function show($id)
+    {
+        $article = Article::findOrFail($id);
+        return view('page_web.berita.show', compact('article'));
+    }
 }

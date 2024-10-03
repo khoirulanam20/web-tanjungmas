@@ -17,13 +17,23 @@
                     <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="/">Beranda</a>
                 </li>
                 <li class="nav-item mx-lg-4 ms-3 ms-lg-0">
-                    <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="/about">Tentang Kami</a>
+                    <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="/about">Profil</a>
+                </li>
+                <li class="nav-item dropdown mx-lg-4 ms-3 ms-lg-0">
+                    <a class="nav-link dropdown-toggle {{ request()->is('kelembagaan*') ? 'active' : '' }}" href="/kelembagaan" id="programDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Program Kami
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="programDropdown">
+                        @foreach($programCategories as $category)
+                            <li><a class="dropdown-item" href="{{ route('kelembagaan.show_sub', $category->id) }}">{{ $category->name }}</a></li>
+                        @endforeach
+                    </ul>
                 </li>
                 <li class="nav-item mx-lg-4 ms-3 ms-lg-0">
-                    <a class="nav-link {{ request()->is('layanan') ? 'active' : '' }}" href="/layanan">Layanan Kami</a>
+                    <a class="nav-link {{ request()->is('layanan') ? 'active' : '' }}" href="/layanan">Layanan</a>
                 </li>
                 <li class="nav-item mx-lg-4 ms-3 ms-lg-0">
-                    <a class="nav-link {{ request()->is('faq') ? 'active' : '' }}" href="/faq">FAQ</a>
+                    <a class="nav-link {{ request()->is('berita') ? 'active' : '' }}" href="/berita">Berita</a>
                 </li>
                 <li class="nav-item mx-lg-4 ms-3 ms-lg-0 mb-3 mb-lg-0">
                     <a class="nav-link {{ request()->is('kontak') ? 'active' : '' }}" href="/kontak">Kontak Kami</a>

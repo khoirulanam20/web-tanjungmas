@@ -80,10 +80,10 @@
           <div data-i18n="Analytics">Articles</div>
         </a>
       </li>
-      <li class="menu-item {{ Request::is('ulangtahun*') ? 'active' : '' }}">
-        <a href="/ulangtahun" class="menu-link">
+      <li class="menu-item {{ Request::is('programs*') ? 'active' : '' }}">
+        <a href="/programs" class="menu-link">
           <i class="menu-icon tf-icons bx bx-ticket"></i>
-          <div data-i18n="Analytics">Ulang Tahun</div>
+          <div data-i18n="Analytics">Program</div>
         </a>
       </li>
       <li class="menu-item {{ Request::is('konser*') ? 'active' : '' }}">
