@@ -37,12 +37,6 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::delete('/dashboard/{user}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
 
-    Route::resource('articles', ArticleController::class);
-    Route::resource('categories', CategoryController::class);
-    Route::resource('programs', ProgramController::class);
-    Route::resource('program_categories', ProgramCategoryController::class);
-    Route::resource('program_sub_categories', ProgramSubCategoryController::class);
-
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
     Route::delete('/program_categories/{programCategory}', [ProgramCategoryController::class, 'destroy'])->name('program_categories.destroy');
     Route::delete('/program_sub_categories/{programSubCategory}', [ProgramSubCategoryController::class, 'destroy'])->name('program_sub_categories.destroy');
@@ -52,6 +46,12 @@ Route::group(['middleware' => ['role:admin']], function () {
 // Guest routes
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 Route::get('/berita', [ArticleController::class, 'showCategories'])->name('berita');
+
+Route::resource('articles', ArticleController::class);
+Route::resource('categories', CategoryController::class);
+Route::resource('programs', ProgramController::class);
+Route::resource('program_categories', ProgramCategoryController::class);
+Route::resource('program_sub_categories', ProgramSubCategoryController::class);
 
 Route::get('/kelembagaan', [ProgramController::class, 'showProgramCategories'])->name('kelembagaan');
 Route::get('/kelembagaan/{id}', [ProgramController::class, 'showProgramsByCategory'])->name('kelembagaan.view');
@@ -74,6 +74,7 @@ Route::get('/program/{id}', [ProgramController::class, 'show'])->name('program.s
 
 
 Route::get('/about', function () {return view('page_web.about.about');})->name('about');
+Route::get('/kontak', function () {return view('page_web.kontak.kontak');})->name('kontak');
 Route::get('/layanan', function () {return view('page_web.layanan.layanan');})->name('layanan');
 Route::get('/layanan/cek_pbb', function () {return view('page_web.layanan.cek_pbb');})->name('layanan.cek_pbb');
 

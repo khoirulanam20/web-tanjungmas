@@ -33,11 +33,5 @@
           <div data-i18n="Analytics">Program</div>
         </a>
       </li>
-      <li class="menu-item {{ Request::is('konser*') ? 'active' : '' }}">
-        <a href="/konser" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-ticket"></i>
-          <div data-i18n="Analytics">Konser</div>
-        </a>
-      </li>
     </ul>
   </aside>

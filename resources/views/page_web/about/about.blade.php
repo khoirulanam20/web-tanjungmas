@@ -9,23 +9,32 @@
             <h1 class="fw-bold text-danger mx-auto">PROFIL KELURAHAN</h1>
         </div>
          {{-- Deskripsi Profil --}}
-         <p class="headline-paragraph text-black-50 pt-2 px-2">
+         <p class="headline-paragraph text-black-50 pt-2 px-2 text-justify">
+
             <b>Tanjung Mas</b> merupakan sebuah nama kelurahan di wilayah kecamatan Semarang Utara, 
+
             Kota Semarang, Provinsi Jawa Tengah. Kelurahan ini berbatasan dengan Kelurahan Kemijen dan Rejomulyo di sebelah timur, 
+
             Purwodinatan di sebelah selatan, Bandarharjo di sebelah barat, dan Laut Jawa di sebelah utara. 
+
             <br><br>
             Nama kelurahan ini diambil dari Pelabuhan Tanjung Emas, dahulu bernama Pelabuhan Rede, yang dikembangkan oleh 
             <!-- Konten yang akan disembunyikan -->
+
             <span id="more-text" class="d-none">
+
                 Pemerintah Hindia Belanda pada tahun 1868 untuk menggantikan pelabuhan lama di Simongan yang dianggap kurang strategis 
                 karena mengalami pendangkalan akibat endapan lumpur.
                 <br><br>
                 Selain pelabuhan, tempat bersejarah paling menonjol di Tanjung Mas adalah Kota Lama Semarang, sebuah wilayah perdagangan Hindia Belanda 
                 yang mulai dibangun pada akhir abad ke-17. GPIB Immanuel Semarang, dibangun pada tahun 1753, merupakan gereja tertua di Provinsi Jawa Tengah 
+
                 dan saat ini berperan sebagai salah satu marka tanah Semarang. 
+
                 Selain itu, terdapat pula bangunan-bangunan bersejarah lain seperti Gedung Marabunta, Gedung H. Spiegel, Gedung Asuransi Jiwasraya, dan Stasiun Semarang Tawang.
+
             </span>
-        </p>
+         </p>
         <!-- Tombol Read More/Less -->
         <div class="d-flex justify-content-center">
             <button id="read-more-btn" class="btn btn-link text-danger text-decoration-none" onclick="toggleText()">Baca Selengkapnya</button>
